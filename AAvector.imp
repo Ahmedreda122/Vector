@@ -1,0 +1,115 @@
+#include <iostream>
+#include <iterator>
+#include "AAVector.hpp"
+
+template <typename T>
+AAVector<T>::AAVector(int capacity)
+{
+  this->capacity = capacity;
+  this->size = 0;
+  vecPtr = new T[capacity];
+}
+
+template <typename T>
+int AAVector<T>::push_back(T item)
+{
+  if (size == capacity)
+  {
+    
+    T* tmpVec = new T[capacity * 2];
+
+    for (int i = 0; i < capacity; i++)
+    {
+      *(tmpVec + i) = *(vecPtr + i);
+    }
+
+    delete[] vecPtr;
+    vecPtr = move(tmpVec);
+    capacity *= 2;
+  }
+
+  vecPtr[size++] = item;
+  return size;
+}
+
+template <typename T>
+T& AAVector<T>::operator[](int index)
+{
+  if (index >= size)
+  {
+    try
+    {
+      throw "OUTOFRANGE";
+    }
+
+    catch (...)
+    {
+      
+      cout << "Invalid Index.(index: " << index << " > size: " << size << ").Returned the last element of the vector" << endl;
+      return vecPtr[size - 1];
+    }
+  }
+  return vecPtr[index];
+}
+
+template <typename T>
+T AAVector<T>::pop_back()
+{
+  if (size == 0)
+  {
+    cout << "Empty vector";
+    return *vecPtr;
+  }
+  // return vecPtr[size - 1] and decrement size by 1
+  return vecPtr[--size];
+}
+
+template <typename T>
+bool AAVector<T>::empty()
+{
+  return (this->size == 0);
+}
+
+template <typename T>
+void AAVector<T>::erase(Iterator it)
+{
+  
+  if (it == this->end())
+  {
+    --size;
+    return;
+  }
+  // int counter for invalid it
+  int counter = 0;
+
+  T* tmpVec = new T[capacity];
+  --size;
+  int i = 0;
+  for (auto v = this->begin(); v != this->end(); v++)
+  {
+    // Copy all elements from this->VecPtr to tmpVec EXCEPT the item iterator at  
+    if (v != it)
+    {
+      counter++;
+      tmpVec[i++] = *v;
+    }
+  }
+  // If we copy all elements from beginning until end (last element does not included) that means that we didn't remove anything
+  if (counter == size - 1)
+  {
+    try
+    {
+      throw "INVALID ITERATOR";
+    }
+
+    catch (...)
+    {
+      cout << "INVALID ITERATOR: We didn't erase anything.\n";
+      delete[] tmpVec;
+      return;
+    }
+  }
+  tmpVec[size - 1] = *(this->end());
+  delete[] vecPtr;
+  vecPtr = move(tmpVec);
+}
