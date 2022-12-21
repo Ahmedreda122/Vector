@@ -1,0 +1,67 @@
+\hypertarget{_a_a_vector_8hpp_source}{}\doxysection{AAVector.\+hpp}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <iterator>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{keyword}{using namespace }std;}
+\DoxyCodeLine{6 }
+\DoxyCodeLine{7 \textcolor{keyword}{template} <\textcolor{keyword}{typename} T, \textcolor{keywordtype}{size\_t} size>}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{class }\mbox{\hyperlink{class_a_a_vector}{AAVector}} }
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11 \textcolor{keyword}{private}:}
+\DoxyCodeLine{12   T* vecPtr = \textcolor{keyword}{new} T[size];}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     \textcolor{comment}{// Constructors and Big 4 }}
+\DoxyCodeLine{16     \mbox{\hyperlink{class_a_a_vector}{AAVector}} (\textcolor{keywordtype}{int} capacity = 0);            \textcolor{comment}{// Initialize by specific capacity}}
+\DoxyCodeLine{17     \textcolor{comment}{// No content is added, size = 0}}
+\DoxyCodeLine{18     \textcolor{comment}{// Assign a default size value}}
+\DoxyCodeLine{19     \mbox{\hyperlink{class_a_a_vector}{AAVector}} (T* arr, \textcolor{keywordtype}{int} nitems);      \textcolor{comment}{// Initialize by n items from array }}
+\DoxyCodeLine{20     \mbox{\hyperlink{class_a_a_vector}{AAVector}} (\textcolor{keyword}{const} \mbox{\hyperlink{class_a_a_vector}{AAVector}}\& anotherVec);  \textcolor{comment}{// Initialize with a copy}}
+\DoxyCodeLine{21     \mbox{\hyperlink{class_a_a_vector}{\string~AAVector}}();           \textcolor{comment}{// Delete allocated memory}}
+\DoxyCodeLine{22     \mbox{\hyperlink{class_a_a_vector}{AAVector}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_a_a_vector}{AAVector}}\& anotherVec);  \textcolor{comment}{// Copy assignment  }}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_a_a_vector}{AAVector}} \&operator=(\textcolor{keyword}{const} \mbox{\hyperlink{class_a_a_vector}{AAVector}}\&\& anotherVec); \textcolor{comment}{// Move assignment }}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Access operations }}
+\DoxyCodeLine{26     T\& operator[](\textcolor{keywordtype}{int} index); \textcolor{comment}{// Access item by reference }}
+\DoxyCodeLine{27     \textcolor{comment}{// Throw an exception if out of range }}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29     \textcolor{comment}{// Modifying operations }}
+\DoxyCodeLine{30     \textcolor{keywordtype}{int} push\_back(T item); \textcolor{comment}{// Add item to end of vec \& return \# of items }}
+\DoxyCodeLine{31             \textcolor{comment}{// Increase capacity of needed}}
+\DoxyCodeLine{32     T pop\_back();     \textcolor{comment}{// Remove and return last element in vec }}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} erase(iterator it);        \textcolor{comment}{// Remove item at iterator}}
+\DoxyCodeLine{34                 \textcolor{comment}{// Throw exception if invalid iter }}
+\DoxyCodeLine{35     \textcolor{keywordtype}{void} erase(iterator it1, iterator it2); \textcolor{comment}{// Remove items between }}
+\DoxyCodeLine{36     \textcolor{comment}{// iterator 1 <= iterator 2 otherwise do nothing}}
+\DoxyCodeLine{37     \textcolor{comment}{// Throw exception if any iterator outside range}}
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} clear();     \textcolor{comment}{// Delete all vector content}}
+\DoxyCodeLine{39     \textcolor{keywordtype}{void} insert(iterator it, T item);       \textcolor{comment}{// Insert item at iterator }}
+\DoxyCodeLine{40     \textcolor{comment}{// Throw exception if invalid }}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42     \textcolor{comment}{// Iterators        // Supports *, + and ++ operations at least}}
+\DoxyCodeLine{43     \textcolor{comment}{// Can use: typedef T* iterator }}
+\DoxyCodeLine{44     \textcolor{comment}{// Or u can use std::iterator so you can }}
+\DoxyCodeLine{45     \textcolor{comment}{// apply STL algorithms on AAVector}}
+\DoxyCodeLine{46     iterator begin();   \textcolor{comment}{// Return an iterator (T*) }}
+\DoxyCodeLine{47     iterator end(); \textcolor{comment}{// Return an iterator (T*) }}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49     \textcolor{comment}{// Comparison operations }}
+\DoxyCodeLine{50     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} \mbox{\hyperlink{class_a_a_vector}{AAVector<T>}}\&); \textcolor{comment}{// Return true if ==  }}
+\DoxyCodeLine{51     \textcolor{keywordtype}{bool} operator< (\textcolor{keyword}{const} \mbox{\hyperlink{class_a_a_vector}{AAVector<T>}}\&); \textcolor{comment}{// Compares item by item // Return true if first different item in this is < in other}}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// Capacity operations }}
+\DoxyCodeLine{54     \textcolor{keywordtype}{int} size(); \textcolor{keyword}{const}     \textcolor{comment}{// Return current size of vec}}
+\DoxyCodeLine{55     \textcolor{keywordtype}{int} capacity(); \textcolor{keyword}{const} \textcolor{comment}{// Return size of current allocated array  }}
+\DoxyCodeLine{56     \textcolor{keywordtype}{int} resize();         \textcolor{comment}{// Relocate to bigger space}}
+\DoxyCodeLine{57     \textcolor{keywordtype}{bool} empty();         \textcolor{comment}{// Return true if size is 0}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     \textcolor{comment}{// Friends }}
+\DoxyCodeLine{60     \textcolor{keyword}{friend} ostream\& operator << (ostream\& out, AAvector<T>)}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \};}
+
+\end{DoxyCode}
