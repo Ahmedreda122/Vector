@@ -240,7 +240,7 @@ bool AAVector<T>::operator==(const AAVector<T>& vec2)
 // insert
 
 template <typename T>
-AAVector<T>::AAVector(const AAVector &anotherVec)
+AAVector<T>::AAVector(const AAVector<T> &anotherVec)
 {
   cout << "Copied \n";
   this->size = anotherVec.size;
@@ -251,26 +251,29 @@ AAVector<T>::AAVector(const AAVector &anotherVec)
     this->vecPtr[i] = anotherVec.vecPtr[i];
   }
 }
+
 // template <typename T>
-// AAVector<T>::AAVector &operator=(const AAVector &anotherVec)
+// AAVector<T>::AAVector &operator=(const AAVector<T> &anotherVec)
 // {
 //   this->size = anotherVec.size;
 //   this->capacity = anotherVec.capacity;
 //   delete[] this->vecPtr;
 //   this->vecPtr = new T[anotherVec];
 // }
+
 // template <typename T>
-// AAVector<T>::AAVector &operator=(const AAVector &&anotherVec)
+// AAVector<T>::AAVector &operator=(const AAVector<T> &&anotherVec)
 // {
-  // if(this!=&anotherVec)
-  //{
-//   this->size = anotherVec.size;
-//   this->capacity = anotherVec.capacity;
-//   delete[] this->vecPtr;
-//   this->vecPtr = anotherVec.vecPtr;
-//   anotherVec.vecPtr = nullptr;  
-  //}
+//   if(this!=&anotherVec)
+//   {
+//     this->size = anotherVec.size;
+//     this->capacity = anotherVec.capacity;
+//     delete[] this->vecPtr;
+//     this->vecPtr = anotherVec.vecPtr;
+//     anotherVec.vecPtr = nullptr;  
+//   }
 // }
+
 template <typename T>
 AAVector<T>::~AAVector()
 {
