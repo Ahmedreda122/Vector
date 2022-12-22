@@ -253,7 +253,7 @@ AAVector<T>::AAVector(const AAVector<T> &anotherVec)
 }
 
 // template <typename T>
-// AAVector<T>::AAVector &operator=(const AAVector<T> &anotherVec)
+// AAVector<T>& AAVector<T>::&operator=(const AAVector<T> &anotherVec)
 // {
 //   cout << "Copy Assignment\n";
 //   this->size = anotherVec.size;
@@ -263,7 +263,7 @@ AAVector<T>::AAVector(const AAVector<T> &anotherVec)
 // }
 
 // template <typename T>
-// AAVector<T>::AAVector &operator=(const AAVector<T> &&anotherVec)
+// AAVector<T>& AAVector<T>::&operator=(const AAVector<T> &&anotherVec)
 // {
 //   cout << "Move Constructor\n";
 //   if(this!= &anotherVec)
