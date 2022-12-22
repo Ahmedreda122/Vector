@@ -112,20 +112,34 @@ void AAVector<T>::erase(Iterator it)
 template <typename T>
 void AAVector<T>::insert(Iterator it, T item)
 {
+  try
+  {
+    if (this->begin() > it || this->end() < it)
+    {
+      throw "OUTOFRANGE";
+
+    }
+  }
+  catch(...)
+  {
+    cout << "OUTOFRANGE, Did not insert anything\n";
+    return;
+  }
   ++size;
   if (size >= capacity)
   {
     vecPtr = new T[capacity * 2];
   }
-  
-  for (auto i = ++this->end(); i > it; --i)
+  // ABDALLAH HUSSEIN
+  for (auto i = this->end(); i > it; --i)
   {
     *i = *(i-1); // shifting elements to the right by one
   }
   *it = item; // insert the element at the given iterator position
 }
-// 2 3 5 6 7 
-// 2 3 5 6 7 ()
+// 2 3 4 9998 5 6 7
+// 2 3 4 5 6 (7)
+// 2 3 5 5 6 7
 // 2 3 () 5 6 7
 template <typename T>
 void AAVector<T>::erase(Iterator it1, Iterator it2)
@@ -313,23 +327,32 @@ AAVector<T> &AAVector<T>::operator=(const AAVector<T> &anotherVec)
 }
 
 template <typename T>
-AAVector<T> &AAVector<T>::operator=(const AAVector<T> &&anotherVec)
+AAVector<T>::AAVector(AAVector&& anotherVec)
 {
   cout << "Move Constructor\n";
+
+  this->size = anotherVec.size;
+  this->capacity = anotherVec.capacity;
+  delete[] this->vecPtr;
+  this->vecPtr = anotherVec.vecPtr;
+  anotherVec.vecPtr = nullptr;
+}
+
+template <typename T>
+AAVector<T>& AAVector<T>::operator=(AAVector<T> &&anotherVec)
+{
+  cout << "Move Assignment\n";
   if (this != &anotherVec)
   {
     this->size = anotherVec.size;
     this->capacity = anotherVec.capacity;
     delete[] this->vecPtr;
     this->vecPtr = anotherVec.vecPtr;
-    for (int i = 0; i < size; ++i)
-    {
-      this->vecPtr[i] = anotherVec.vecPtr[i];
-    }
     anotherVec.vecPtr = nullptr;
-    return *this;
   }
+  return *this;
 }
+
 template <typename T>
 AAVector<T>::AAVector(T *arr, int nitems)
 {
@@ -341,6 +364,7 @@ AAVector<T>::AAVector(T *arr, int nitems)
     this->vecPtr[i] = arr[i];
   }
 }
+
 template <typename T>
 AAVector<T>::~AAVector()
 {

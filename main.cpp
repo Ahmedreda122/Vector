@@ -74,15 +74,23 @@ int main()
   }
   cout << "-------------\n";
   AAVector<int> vec12(7);
+  AAVector<int> vec13(8);
+  vec13 = AAVector<int>(55);
+  cout << "capacity: " << vec13.Capacity() << endl;
+  
   vec12.push_back(2);
   vec12.push_back(3);
   vec12.push_back(5);
   vec12.push_back(6);
   vec12.push_back(7);
-  vec12.insert(vec12.begin()+2,4);
-  for (auto i = vec12.begin(); i != ++vec12.end(); i++)
+  for (auto i = vec12.begin(); i != vec12.end(); i++)
   {
     cout << *i << " ";
   }
-  
+  cout << endl;
+  vec12.insert(vec12.begin()+2,99999);
+  for (auto i = vec12.begin(); i != vec12.end(); i++)
+  {
+    cout << *i << " ";
+  }
 }

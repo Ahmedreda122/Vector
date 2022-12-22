@@ -46,9 +46,9 @@ public:
     //it++;
     Iterator operator++(int) 
     {
-      auto tmp = *this;
+      auto oldit = *this;
       ++(*this);
-      return tmp;
+      return oldit;
     }
     //--it;
     Iterator& operator--(){ptr--; return *this;}
@@ -59,7 +59,7 @@ public:
       --(*this);
       return tmp;
     }
-
+    
     bool operator< (Iterator& it2) const {return (ptr < it2.ptr);}
     bool operator<= (Iterator& it2) const {return (ptr <= it2.ptr);}
 
@@ -78,16 +78,17 @@ public:
   private:
     pointer ptr;
   };
-    // Constructors and Big 4 
-    AAVector (int capacity = 0);
-    // Initialize by specific capacity
-    // No content is added, size = 0
-    // Assign a default size value
-    AAVector (T* arr, int nitems);		// Initialize by n items from array 
-    AAVector (const AAVector& anotherVec);	// Initialize with a copy
-    ~AAVector();			// Delete allocated memory
-    AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
-    AAVector &operator=(const AAVector&& anotherVec); // Move assignment 
+  // Constructors and Big 4 
+  AAVector (int capacity = 0);
+  // Initialize by specific capacity
+  // No content is added, size = 0
+  // Assign a default size value
+  AAVector (T* arr, int nitems);		// Initialize by n items from array 
+  AAVector (const AAVector& anotherVec);	// Initialize with a copy
+  AAVector (AAVector&& anotherVec);
+  ~AAVector();			// Delete allocated memory
+  AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
+  AAVector &operator=(AAVector&& anotherVec); // Move assignment 
 
   // Access operations 
   T& operator[](int index); // Access item by reference 
