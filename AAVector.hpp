@@ -84,9 +84,9 @@ public:
     // No content is added, size = 0
     // Assign a default size value
     // AAVector (T* arr, int nitems);		// Initialize by n items from array 
-    // AAVector (const AAVector& anotherVec);	// Initialize with a copy
-    ~AAVector() {delete[] vecPtr;}		// Delete allocated memory
-    // AAVector &operator=(const AAVector& anotherVec);  // Copy assignment  
+    AAVector (const AAVector& anotherVec);	// Initialize with a copy
+    ~AAVector();			// Delete allocated memory
+    // AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
     // AAVector &operator=(const AAVector&& anotherVec); // Move assignment 
 
     // Access operations 

@@ -15,8 +15,8 @@ int AAVector<T>::push_back(T item)
 {
   if (size == capacity)
   {
-    
-    T* tmpVec = new T[capacity * 2];
+
+    T *tmpVec = new T[capacity * 2];
 
     for (int i = 0; i < capacity; i++)
     {
@@ -33,7 +33,7 @@ int AAVector<T>::push_back(T item)
 }
 
 template <typename T>
-T& AAVector<T>::operator[](int index)
+T &AAVector<T>::operator[](int index)
 {
   if (index >= size)
   {
@@ -44,7 +44,7 @@ T& AAVector<T>::operator[](int index)
 
     catch (...)
     {
-      
+
       cout << "Invalid Index.(index: " << index << " > size: " << size << ").Returned the last element of the vector" << endl;
       return vecPtr[size - 1];
     }
@@ -97,7 +97,7 @@ void AAVector<T>::erase(Iterator it)
   int i = 0;
   for (auto v = this->begin(); v != this->end(); v++)
   {
-    // Copy all elements from this->VecPtr to tmpVec EXCEPT the item iterator at  
+    // Copy all elements from this->VecPtr to tmpVec EXCEPT the item iterator at
     if (v != it)
     {
       //counter++;
@@ -238,3 +238,42 @@ bool AAVector<T>::operator==(const AAVector<T>& vec2)
 // }
 
 // insert
+
+template <typename T>
+AAVector<T>::AAVector(const AAVector &anotherVec)
+{
+  cout << "Copied \n";
+  this->size = anotherVec.size;
+  this->capacity = anotherVec.capacity;
+  this->vecPtr = new T[capacity];
+  for (int i = 0; i < capacity; ++i)
+  {
+    this->vecPtr[i] = anotherVec.vecPtr[i];
+  }
+}
+// template <typename T>
+// AAVector<T>::AAVector &operator=(const AAVector &anotherVec)
+// {
+//   this->size = anotherVec.size;
+//   this->capacity = anotherVec.capacity;
+//   delete[] this->vecPtr;
+//   this->vecPtr = new T[anotherVec];
+// }
+// template <typename T>
+// AAVector<T>::AAVector &operator=(const AAVector &&anotherVec)
+// {
+  // if(this!=&anotherVec)
+  //{
+//   this->size = anotherVec.size;
+//   this->capacity = anotherVec.capacity;
+//   delete[] this->vecPtr;
+//   this->vecPtr = anotherVec.vecPtr;
+//   anotherVec.vecPtr = nullptr;  
+  //}
+// }
+template <typename T>
+AAVector<T>::~AAVector()
+{
+  delete[] this->vecPtr;
+  cout << "deleted\n";
+}

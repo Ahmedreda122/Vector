@@ -51,6 +51,13 @@ int main()
   cout << vec2;
   vec2.erase(it1, it2);
   cout << vec2;
+  AAVector<int> vec1(6);
+  vec1.push_back(1);
+  AAVector<int> vec2(vec1);
+  auto it1 = vec2.begin();
+  cout << *it1 << endl ;
+  cout << vec2.Capacity() << '\n';
+  cout << vec2.Size()<<'\n';
 }
 
 
