@@ -38,4 +38,6 @@ int main()
   cout << *it3 << endl ;
   cout << vec6.Capacity() << '\n';
   cout << vec6.Size()<<'\n';
+  string ahmed = (string) 0;
+  cout << ahmed << endl;
 }

@@ -78,40 +78,40 @@ public:
   private:
     pointer ptr;
   };
-    // Constructors and Big 4 
-    AAVector (int capacity = 0);
-    // Initialize by specific capacity
-    // No content is added, size = 0
-    // Assign a default size value
-    // AAVector (T* arr, int nitems);		// Initialize by n items from array 
-    AAVector (const AAVector& anotherVec);	// Initialize with a copy
-    ~AAVector();			// Delete allocated memory
-    // AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
-    // AAVector &operator=(const AAVector&& anotherVec); // Move assignment 
+  // Constructors and Big 4 
+  AAVector (int capacity = 0);
+  // Initialize by specific capacity
+  // No content is added, size = 0
+  // Assign a default size value
+  // AAVector (T* arr, int nitems);		// Initialize by n items from array 
+  AAVector (const AAVector& anotherVec);	// Initialize with a copy
+  ~AAVector();			// Delete allocated memory
+  // AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
+  // AAVector &operator=(const AAVector&& anotherVec); // Move assignment 
 
-    // Access operations 
-    T& operator[](int index); // Access item by reference 
-    // Throw an exception if out of range 
+  // Access operations 
+  T& operator[](int index); // Access item by reference 
+  // Throw an exception if out of range 
 
-    // Modifying operations 
-    int push_back(T item); // Add item to end of vec & return # of items 
-                          // Increase capacity of needed
-    T pop_back(); // Remove and return last element in vec 
-    void erase(Iterator it);  // Remove item at iterator
-    // Throw exception if invalid iter 
-    void erase(Iterator it1, Iterator it2); // Remove items between 
-    // iterator 1 <= iterator 2 otherwise do nothing
-    // Throw exception if any iterator outside range
-    void clear();     // Delete all vector content
-    // void insert(Iterator it, T item);       // Insert item at iterator 
-    // Throw exception if invalid 
+  // Modifying operations 
+  int push_back(T item); // Add item to end of vec & return # of items 
+                        // Increase capacity of needed
+  T pop_back(); // Remove and return last element in vec 
+  void erase(Iterator it);  // Remove item at iterator
+  // Throw exception if invalid iter 
+  void erase(Iterator it1, Iterator it2); // Remove items between 
+  // iterator 1 <= iterator 2 otherwise do nothing
+  // Throw exception if any iterator outside range
+  void clear();     // Delete all vector content
+  // void insert(Iterator it, T item);       // Insert item at iterator 
+  // Throw exception if invalid 
 
-    // Iterators 		// Supports *, + and ++ operations at least
-    // Can use: typedef T* iterator 
-    // Or u can use std::iterator so you can 
-    // apply STL algorithms on AAVector
-    Iterator begin() const {AAVector<T>::Iterator it (vecPtr); return it;}	// Return an iterator (T*) 
-    Iterator end() const {AAVector<T>::Iterator it (vecPtr + (size - 1)); return it;}	// Return an iterator (T*) 
+  // Iterators 		// Supports *, + and ++ operations at least
+  // Can use: typedef T* iterator 
+  // Or u can use std::iterator so you can 
+  // apply STL algorithms on AAVector
+  Iterator begin() const {AAVector<T>::Iterator it (vecPtr); return it;}	// Return an iterator (T*) 
+  Iterator end() const {AAVector<T>::Iterator it (vecPtr + size); return it;}	// Return an iterator (T*) 
 
   // Comparison operations 
   bool operator==(const AAVector<T>& vec2); // Return true if ==  
