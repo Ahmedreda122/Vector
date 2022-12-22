@@ -43,21 +43,20 @@ int main()
   cout << vec2.push_back(333) << endl;
   cout << vec2.push_back(344) << endl;
   cout << vec2.push_back(888) << endl;
-  AAVector<int>::Iterator it3 = vec2.begin();
+  AAVector<int>::Iterator it1 = vec2.begin();
   advance(it1, 2);
-
-  AAVector<int>::Iterator it3 = vec.end();
+  
+  AAVector<int>::Iterator it2 = vec.end();
   cout << vec2;
   vec2.erase(it1, it2);
   cout << vec2;
-  AAVector<int> vec3(6);
-  vec3.push_back(5);
-  vec3.push_back(7);
-  AAVector<int> vec4(vec3);
-  auto it3 = vec4.begin();
-  cout << *it3 << " " << *(it3 + 1) << endl;
-  cout << vec4.Capacity() << '\n';
-  cout << vec4.Size() << '\n';
+  AAVector<int> vec1(6);
+  vec1.push_back(1);
+  AAVector<int> vec2(vec1);
+  auto it1 = vec2.begin();
+  cout << *it1 << endl ;
+  cout << vec2.Capacity() << '\n';
+  cout << vec2.Size()<<'\n';
 }
 
 //..... ^_^ .........
