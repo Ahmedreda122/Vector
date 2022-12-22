@@ -257,7 +257,7 @@ AAVector<T>::AAVector(const AAVector &anotherVec)
 //   this->size = anotherVec.size;
 //   this->capacity = anotherVec.capacity;
 //   delete[] this->vecPtr;
-//   this->vecPtr = new T[anotherVec];
+//   this->vecPtr = new T[anotherVec.capacity];
 // }
 // template <typename T>
 // AAVector<T>::AAVector &operator=(const AAVector &&anotherVec)
