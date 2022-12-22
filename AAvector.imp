@@ -15,8 +15,8 @@ int AAVector<T>::push_back(T item)
 {
   if (size == capacity)
   {
-    
-    T* tmpVec = new T[capacity * 2];
+
+    T *tmpVec = new T[capacity * 2];
 
     for (int i = 0; i < capacity; i++)
     {
@@ -33,7 +33,7 @@ int AAVector<T>::push_back(T item)
 }
 
 template <typename T>
-T& AAVector<T>::operator[](int index)
+T &AAVector<T>::operator[](int index)
 {
   if (index >= size)
   {
@@ -44,7 +44,7 @@ T& AAVector<T>::operator[](int index)
 
     catch (...)
     {
-      
+
       cout << "Invalid Index.(index: " << index << " > size: " << size << ").Returned the last element of the vector" << endl;
       return vecPtr[size - 1];
     }
@@ -73,7 +73,7 @@ bool AAVector<T>::empty()
 template <typename T>
 void AAVector<T>::erase(Iterator it)
 {
-  
+
   if (it == this->end())
   {
     --size;
@@ -82,12 +82,12 @@ void AAVector<T>::erase(Iterator it)
   // int counter for invalid it
   int counter = 0;
 
-  T* tmpVec = new T[capacity];
+  T *tmpVec = new T[capacity];
   --size;
   int i = 0;
   for (auto v = this->begin(); v != this->end(); v++)
   {
-    // Copy all elements from this->VecPtr to tmpVec EXCEPT the item iterator at  
+    // Copy all elements from this->VecPtr to tmpVec EXCEPT the item iterator at
     if (v != it)
     {
       counter++;
@@ -112,4 +112,42 @@ void AAVector<T>::erase(Iterator it)
   tmpVec[size - 1] = *(this->end());
   delete[] vecPtr;
   vecPtr = move(tmpVec);
+}
+template <typename T>
+AAVector<T>::AAVector(const AAVector &anotherVec)
+{
+  cout << "Copied \n";
+  this->size = anotherVec.size;
+  this->capacity = anotherVec.capacity;
+  this->vecPtr = new T[capacity];
+  for (int i = 0; i < capacity; ++i)
+  {
+    this->vecPtr[i] = anotherVec.vecPtr[i];
+  }
+}
+// template <typename T>
+// AAVector<T>::AAVector &operator=(const AAVector &anotherVec)
+// {
+//   this->size = anotherVec.size;
+//   this->capacity = anotherVec.capacity;
+//   delete[] this->vecPtr;
+//   this->vecPtr = new T[anotherVec];
+// }
+// template <typename T>
+// AAVector<T>::AAVector &operator=(const AAVector &&anotherVec)
+// {
+  // if(this!=&anotherVec)
+  //{
+//   this->size = anotherVec.size;
+//   this->capacity = anotherVec.capacity;
+//   delete[] this->vecPtr;
+//   this->vecPtr = anotherVec.vecPtr;
+//   anotherVec.vecPtr = nullptr;  
+  //}
+// }
+template <typename T>
+AAVector<T>::~AAVector()
+{
+  delete[] this->vecPtr;
+  cout << "deleted\n";
 }
