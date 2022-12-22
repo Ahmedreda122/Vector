@@ -45,7 +45,6 @@ int main()
   cout << vec2.push_back(888) << endl;
   AAVector<int>::Iterator it1 = vec2.begin();
   advance(it1, 2);
-  
   AAVector<int>::Iterator it2 = vec.end();
   cout << vec2;
   vec2.erase(it1, it2);
