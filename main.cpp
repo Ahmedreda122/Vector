@@ -4,7 +4,6 @@
 #include "AAVector.imp"
 using namespace std;
 
-
 int main()
 {
   AAVector<int> vec(15);
@@ -46,19 +45,19 @@ int main()
   cout << vec2.push_back(888) << endl;
   AAVector<int>::Iterator it3 = vec2.begin();
   advance(it1, 2);
-  
+
   AAVector<int>::Iterator it3 = vec.end();
   cout << vec2;
   vec2.erase(it1, it2);
   cout << vec2;
   AAVector<int> vec3(6);
-  vec3.push_back(1);
-  AAVector<int> vec4(vec4);
+  vec3.push_back(5);
+  vec3.push_back(7);
+  AAVector<int> vec4(vec3);
   auto it3 = vec4.begin();
-  cout << *it3 << endl ;
+  cout << *it3 << " " << *(it3 + 1) << endl;
   cout << vec4.Capacity() << '\n';
-  cout << vec4.Size() <<'\n';
+  cout << vec4.Size() << '\n';
 }
-
 
 //..... ^_^ .........
