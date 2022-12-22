@@ -78,16 +78,16 @@ public:
   private:
     pointer ptr;
   };
-  // Constructors and Big 4 
-  AAVector (int capacity = 0);
-  // Initialize by specific capacity
-  // No content is added, size = 0
-  // Assign a default size value
-  // AAVector (T* arr, int nitems);		// Initialize by n items from array 
-  AAVector (const AAVector& anotherVec);	// Initialize with a copy
-  ~AAVector();			// Delete allocated memory
-  // AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
-  // AAVector &operator=(const AAVector&& anotherVec); // Move assignment 
+    // Constructors and Big 4 
+    AAVector (int capacity = 0);
+    // Initialize by specific capacity
+    // No content is added, size = 0
+    // Assign a default size value
+    AAVector (T* arr, int nitems);		// Initialize by n items from array 
+    AAVector (const AAVector& anotherVec);	// Initialize with a copy
+    ~AAVector();			// Delete allocated memory
+    AAVector &operator=(const AAVector& anotherVec); // Copy assignment  
+    AAVector &operator=(const AAVector&& anotherVec); // Move assignment 
 
   // Access operations 
   T& operator[](int index); // Access item by reference 
@@ -103,7 +103,7 @@ public:
   // iterator 1 <= iterator 2 otherwise do nothing
   // Throw exception if any iterator outside range
   void clear();     // Delete all vector content
-  // void insert(Iterator it, T item);       // Insert item at iterator 
+  void insert(Iterator it, T item);       // Insert item at iterator 
   // Throw exception if invalid 
 
   // Iterators 		// Supports *, + and ++ operations at least
