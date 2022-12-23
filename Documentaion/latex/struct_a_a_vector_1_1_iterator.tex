@@ -1,0 +1,88 @@
+\hypertarget{struct_a_a_vector_1_1_iterator}{}\doxysection{AAVector\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+::Iterator Struct Reference}
+\label{struct_a_a_vector_1_1_iterator}\index{AAVector$<$ T $>$::Iterator@{AAVector$<$ T $>$::Iterator}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a37d0ffe111ecc8838efe0dd1563cec29}\label{struct_a_a_vector_1_1_iterator_a37d0ffe111ecc8838efe0dd1563cec29}} 
+using {\bfseries iterator\+\_\+category} = random\+\_\+access\+\_\+iterator\+\_\+tag
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a0bf93d3a8daeca08a20fd7ce5a7884ec}\label{struct_a_a_vector_1_1_iterator_a0bf93d3a8daeca08a20fd7ce5a7884ec}} 
+using {\bfseries difference\+\_\+type} = ptrdiff\+\_\+t
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a635ba2024e02682cb99abc4ee665bda3}\label{struct_a_a_vector_1_1_iterator_a635ba2024e02682cb99abc4ee665bda3}} 
+using {\bfseries value\+\_\+type} = T
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a9a671b2c1b6e4937b2a44b7277a43525}\label{struct_a_a_vector_1_1_iterator_a9a671b2c1b6e4937b2a44b7277a43525}} 
+using {\bfseries pointer} = T $\ast$
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a58569d1bae717a6dc67f8c18d30b5dc4}\label{struct_a_a_vector_1_1_iterator_a58569d1bae717a6dc67f8c18d30b5dc4}} 
+using {\bfseries reference} = T \&
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a166a915a60de4c512610623abb69f95e}\label{struct_a_a_vector_1_1_iterator_a166a915a60de4c512610623abb69f95e}} 
+{\bfseries Iterator} (pointer p)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_aaf5c195f61c973989f6d105f18cdbb63}\label{struct_a_a_vector_1_1_iterator_aaf5c195f61c973989f6d105f18cdbb63}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \& {\bfseries operator=} (\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&it)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_ac5732a1990b0ffc3a2cceb2c15dfe83a}\label{struct_a_a_vector_1_1_iterator_ac5732a1990b0ffc3a2cceb2c15dfe83a}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \& {\bfseries operator=} (pointer \&p)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_ae3cb3b08d6ec3336abf8c84f6cb2b2ac}\label{struct_a_a_vector_1_1_iterator_ae3cb3b08d6ec3336abf8c84f6cb2b2ac}} 
+reference {\bfseries operator$\ast$} () const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a14c72afee357cd794c29b84e27542505}\label{struct_a_a_vector_1_1_iterator_a14c72afee357cd794c29b84e27542505}} 
+pointer {\bfseries operator-\/$>$} ()
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_af6eabd76b4b8383a01395502597b9a8b}\label{struct_a_a_vector_1_1_iterator_af6eabd76b4b8383a01395502597b9a8b}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \& {\bfseries operator++} ()
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_af16e70741c5ff7548189825d63e5345b}\label{struct_a_a_vector_1_1_iterator_af16e70741c5ff7548189825d63e5345b}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} {\bfseries operator++} (int)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a7a16fe3cf2da72037eb38c0bd9c290f2}\label{struct_a_a_vector_1_1_iterator_a7a16fe3cf2da72037eb38c0bd9c290f2}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \& {\bfseries operator-\/-\/} ()
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_ac8a26d2149ea2f0156fa31a72c49ab9b}\label{struct_a_a_vector_1_1_iterator_ac8a26d2149ea2f0156fa31a72c49ab9b}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} {\bfseries operator-\/-\/} (int)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_aed9ae89d661d13732eff48edbbe049b0}\label{struct_a_a_vector_1_1_iterator_aed9ae89d661d13732eff48edbbe049b0}} 
+bool {\bfseries operator$<$} (\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&it2) const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a750bba56b2afcd914bf389f0ad49f924}\label{struct_a_a_vector_1_1_iterator_a750bba56b2afcd914bf389f0ad49f924}} 
+bool {\bfseries operator$<$=} (\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&it2) const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_aa6d8477504a6a01350be97f7eb3a33cb}\label{struct_a_a_vector_1_1_iterator_aa6d8477504a6a01350be97f7eb3a33cb}} 
+bool {\bfseries operator$>$} (\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&it2) const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a7b3967dbb231465c2f9f426cdeaef8eb}\label{struct_a_a_vector_1_1_iterator_a7b3967dbb231465c2f9f426cdeaef8eb}} 
+bool {\bfseries operator$>$=} (\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&it2) const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a4cf8611d36e6c1a11cd6ca510853af8f}\label{struct_a_a_vector_1_1_iterator_a4cf8611d36e6c1a11cd6ca510853af8f}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} {\bfseries operator+} (const int \&n) const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a50d7dc0b6ca4621833e52b8adbe42653}\label{struct_a_a_vector_1_1_iterator_a50d7dc0b6ca4621833e52b8adbe42653}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} {\bfseries operator+=} (const int \&n)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a9e9ab6d534e1689656a083aedd02f3ca}\label{struct_a_a_vector_1_1_iterator_a9e9ab6d534e1689656a083aedd02f3ca}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} {\bfseries operator-\/} (const int \&n) const
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a38bec7bcfef4ce91a7b5a0274039abf9}\label{struct_a_a_vector_1_1_iterator_a38bec7bcfef4ce91a7b5a0274039abf9}} 
+\mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} {\bfseries operator-\/=} (const int \&n)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_aac1a433b0acf7c6d15abc1b1428b7338}\label{struct_a_a_vector_1_1_iterator_aac1a433b0acf7c6d15abc1b1428b7338}} 
+bool {\bfseries operator==} (const \mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&p1, const \mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&p2)
+\item 
+\mbox{\Hypertarget{struct_a_a_vector_1_1_iterator_a7802585c85fd7d19992d9ff0821dd9d2}\label{struct_a_a_vector_1_1_iterator_a7802585c85fd7d19992d9ff0821dd9d2}} 
+bool {\bfseries operator!=} (const \mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&p1, const \mbox{\hyperlink{struct_a_a_vector_1_1_iterator}{Iterator}} \&p2)
+\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+AAVector.\+hpp\end{DoxyCompactItemize}
